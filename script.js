@@ -11,21 +11,26 @@ Filename: script.js
 "use strict";
 var formValidity = false;
 
+//Function to validate the only fieldset/form
 function validateForm(evt) {
     if (evt.preventDefault) {
         evt.preventDefault();
     } else {
         evt.returnValue = false;
     }
-    if (formValidity === true) {
-        document.getElementsByTagName("form")[0].submit();
-    }
+    document.getElementById("errorText").innerHTML = "Please check your life's decisions";
+    document.getElementById("errorText").style.display = "block";
+    validateRequired();
+}
+// TBC
+
+function validateRequired() {
+
 }
 
-
 function createEventListeners() {
-    window.addEventListener("submit", validateForm);
+    window.addEventListener("submit", validateForm, false);
 }
 
 // enable load event handlers
-window.addEventListener("load", createEventListeners);
+window.addEventListener("load", createEventListeners, false);
